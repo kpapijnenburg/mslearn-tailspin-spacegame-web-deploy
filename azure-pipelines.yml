@@ -8,7 +8,7 @@ schedules:
     branches:
       include:
         - release
-      always: false
+    always: false
 
 stages:
   - stage: "Build"
@@ -116,6 +116,7 @@ stages:
               steps:
                 - download: current
                   artifact: drop
+                - task: AzureWebApp@1
                   displayName: "Azure App Service Deploy: website"
                   inputs:
                     azureSubscription: "Resource Manager - Tailspin - Game"
